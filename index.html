@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TradeMind Estimator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>TradeMind Smart Estimator</h1>
+    <form id="estimator-form">
+      <label>Job Type:
+        <select name="job" id="job">
+          <option value="Cabinet Install">Cabinet Install</option>
+          <option value="Trim Work">Trim Work</option>
+          <option value="Deck Build">Deck Build</option>
+        </select>
+      </label>
+      <label>Days Required:
+        <input type="number" id="days" value="5" min="1" />
+      </label>
+      <label>Markup (%):
+        <input type="number" id="markup" value="20" min="0" />
+      </label>
+      <label>Material Grade:
+        <select name="material" id="material">
+          <option value="Standard">Standard</option>
+          <option value="Premium">Premium</option>
+        </select>
+      </label>
+      <button type="submit">Estimate It</button>
+    </form>
+    <div id="result" class="result"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
