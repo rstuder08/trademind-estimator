@@ -2,34 +2,69 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TradeMind Estimator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TradeMind AI</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>TradeMind Smart Estimator</h1>
-    <form id="estimator-form">
-      <label>Job Type:
-        <select name="job" id="job">
-          <option value="Cabinet Install">Cabinet Install</option>
-          <option value="Trim Work">Trim Work</option>
-          <option value="Deck Build">Deck Build</option>
+    <h1>TradeMind AI Estimator</h1>
+    <form id="prompt-form">
+      <label>Trade Preset:
+        <select id="trade">
+          <option value="">Select a Trade</option>
+          <option value="Cabinets">Cabinets</option>
+          <option value="Drywall">Drywall</option>
+          <option value="Flooring">Flooring</option>
         </select>
       </label>
-      <label>Days Required:
+      <label>Scope of Work:
+        <textarea id="scope" required></textarea>
+      </label>
+      <label>Material Details:
+        <textarea id="materials" required></textarea>
+      </label>
+      <label>Preferred Suppliers:
+        <textarea id="suppliers" required></textarea>
+      </label>
+      <label>Location (City, State):
+        <input type="text" id="location" required />
+      </label>
+      <label>Client Name (Optional):
+        <input type="text" id="client" />
+      </label>
+      <label>Who's This For:
+        <select id="audience">
+          <option value="homeowner">Homeowner</option>
+          <option value="gc">General Contractor</option>
+          <option value="crew">Crew</option>
+          <option value="insurance">Insurance Adjuster</option>
+        </select>
+      </label>
+      <label>Number of People on Crew:
+        <input type="number" id="crewCount" value="1" min="1" />
+      </label>
+      <label>Daily Rate Per Person ($):
+        <input type="number" id="dailyRate" value="400" min="0" />
+      </label>
+      <label>Estimated Days:
         <input type="number" id="days" value="5" min="1" />
       </label>
-      <label>Markup (%):
-        <input type="number" id="markup" value="20" min="0" />
-      </label>
-      <label>Material Grade:
-        <select name="material" id="material">
-          <option value="Standard">Standard</option>
-          <option value="Premium">Premium</option>
+      <label>Output Format:
+        <select id="format">
+          <option value="narrative">Narrative</option>
+          <option value="itemized">Itemized</option>
+          <option value="spreadsheet">Spreadsheet</option>
+          <option value="text">Text Message</option>
         </select>
       </label>
-      <button type="submit">Estimate It</button>
+      <label>
+        <input type="checkbox" id="nobs" /> Use No BS Mode
+      </label>
+      <label>
+        <input type="checkbox" id="clientView" /> Client View Mode
+      </label>
+      <button type="submit">Build My Prompt</button>
     </form>
     <div id="result" class="result"></div>
   </div>
